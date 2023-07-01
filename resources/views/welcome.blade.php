@@ -33,11 +33,11 @@
                         <div class="d-flex align-items-end  justify-content-between">
                             <div class="dropdown">
                             <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Opções   
+                                Opções   
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="/noticia/editar/{{ $noticia->id }}">Editar</a></li>
-                                <form action="/noticia/deletar/{{ $noticia->id }}" method="POST">
+                                <li><a class="dropdown-item" href="{{ route('create-update-noticia', ['id' => $noticia->id]) }}">Editar</a></li>
+                                <form action="{{ route('destroy-noticia', ['id' => $noticia->id ]) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
                                     <li><button class="dropdown-item" name="submit" type="submit" >Deletar</button></li>

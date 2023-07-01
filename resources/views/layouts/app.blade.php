@@ -33,10 +33,10 @@
           <a class="nav-link" aria-current="page" href="/"><i class="bi bi-house"></i>  Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/cadastro-noticia"><i class="bi bi-plus-square"></i>  Publicar Notícia</a>
+          <a class="nav-link" href="{{ route('create-store-noticia')}}"><i class="bi bi-plus-square"></i>  Publicar Notícia</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/cadastro-categoria"><i class="bi bi-plus-square"></i>  Cadastrar Categoria</a>
+          <a class="nav-link" href="{{ route('create-categoria')}}"><i class="bi bi-plus-square"></i>  Cadastrar Categoria</a>
         </li>
       </ul>
     </div>
@@ -57,10 +57,10 @@
 
     <!-- Right -->
     <div>
-      <a href="" class="me-4 text-reset">
+      <a href="https://www.linkedin.com/in/alysson-oliveira-andrade/" target="_blank" class="me-4 text-reset">
         <i class="bi bi-linkedin" style="width: 100;"></i>
       </a>
-      <a href="" class="me-4 text-reset">
+      <a href="https://github.com/AlyssonDev0 " target="_blank" class="me-4 text-reset">
         <i class="bi bi-github"></i>
       </a>
     </div>

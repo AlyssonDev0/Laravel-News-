@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\CategoriaStoreRequest;
 use App\Http\Requests\NoticiaEditRequest;
 use App\Http\Requests\NoticiaStoreRequest;
 use App\Models\Categoria;
@@ -26,26 +25,12 @@ class NoticiaController extends Controller
        
     }
 
-    public function cadCateg(){
-        $categorias = Categoria::all();
-        return view('cadCateg', ['categorias' => $categorias]);
-    } 
-
-    public function cadNoticia(){
+    public function create(){
         $categorias = Categoria::all();
         return view('cadNoticia', ['categorias' => $categorias]);
     }
 
-    public function storeCategoria(CategoriaStoreRequest $request){
-       
-        $categoria = new Categoria;
-        $categoria->nome = $request->nome;
-        $categoria->save();
-
-        return redirect('/cadastro-categoria')->with('msgCadCategoria', 'Categoria Salva com Sucesso!');
-    }
-
-    public function storeNoticia(NoticiaStoreRequest $request){
+    public function store(NoticiaStoreRequest $request){
 
         $noticia = new Noticia;
         $noticia->titulo = $request->titulo;
@@ -53,31 +38,24 @@ class NoticiaController extends Controller
         $noticia->conteudo = $request->conteudo;
         $noticia->save();
 
-        return redirect('/cadastro-noticia')->with('msgCadNoticia', 'Notícia Postada com Sucesso!');
+        return redirect('/')->with('msgNoticias', 'Notícia Postada com Sucesso!');
     }
 
-    public function destroyCategoria($id){
-        
-        Categoria::findOrFail($id)->delete();
-        return redirect('/cadastro-categoria')->with('msgCadCategoria', "Categoria Deletada com Sucesso!");
-
-    }
-
-    public function editNoticia($id){
+    public function createUpdate($id){
 
         $categorias = Categoria::all();
         $noticia = Noticia::findOrFail($id);
         return view('/editNoticia', ['noticia' => $noticia, 'categorias' => $categorias]);
     }
 
-    public function updateNoticia(NoticiaEditRequest $request){
+    public function update(NoticiaEditRequest $request){
 
         Noticia::findOrfail($request->id)->update($request->all());
         return redirect('/')->with('msgNoticias', "Notícia Atualizada com Sucesso!");
 
     }
 
-    public function destroyNoticia($id){
+    public function destroy($id){
 
         Noticia::findOrFail($id)->delete();
         return redirect('/')->with('msgNoticias', "Notícia Deletada com Sucesso!");

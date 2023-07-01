@@ -13,7 +13,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <form action="/categoria/cadastrar" method="POST">
+      <form action="{{ route('store-categoria') }}" method="POST">
                 @csrf
                 <label for="nome" class="form-label d-none">Nome</label>
                 <input type="text" name="nome" id="nome" placeholder="Nome da Categoria" class="form-control">
@@ -32,7 +32,7 @@
         <h1>Categorias</h1>
         <!-- Botão  Modal Cadastrar Categoria -->
         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cadCategoriaModal">
-         Cadastrar 
+            Cadastrar 
         </button>   
     </div>
     @if(session('msgCadCategoria'))
@@ -64,7 +64,12 @@
                 <th scope="row">{{ $count }}</th>
                 <td>{{ $categoria->nome }}</td>
                 <td class="d-flex justify-content-start gap-1">
-                    <form action="/categorias/deletar/{{ $categoria->id }}" method="POST">
+                    <a href="{{ route('create-update-categoria', ['id' => $categoria->id])}}">
+                        <button  class="btn btn-warning">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </a>
+                    <form action="{{ route('destroy-categoria', ['id' => $categoria->id]) }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <button type="submit" name="submit" class="btn btn-danger"><i class="bi bi-trash"></i></button>

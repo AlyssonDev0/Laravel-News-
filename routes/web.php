@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoticiaController;
+use App\Http\Controllers\CategoriaController;
+use App\Models\Categoria;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +16,19 @@ use App\Http\Controllers\NoticiaController;
 |
 */
 
+//Notícia Controller
 Route::get('/', [NoticiaController::class, 'index']);
-Route::get('/cadastro-noticia', [NoticiaController::class, 'cadNoticia']);
-Route::get('/cadastro-categoria', [NoticiaController::class, 'cadCateg']);
-Route::post('/categoria/cadastrar', [NoticiaController::class, 'storeCategoria']);
-Route::post('/noticia/cadastrar', [NoticiaController::class, 'storeNoticia']);
-Route::delete('/categorias/deletar/{id}', [NoticiaController::class, 'destroyCategoria']);
-Route::get('/noticia/editar/{id}', [NoticiaController::class, 'editNoticia']);
-Route::put('/noticia/update/{id}', [NoticiaController::class, 'updateNoticia']);
-Route::delete('/noticia/deletar/{id}', [NoticiaController::class, 'destroyNoticia']);
+Route::get('/cadastro-noticia', [NoticiaController::class, 'create'])->name('create-store-noticia');
+Route::post('/noticia/cadastrar', [NoticiaController::class, 'store'])->name('store-noticia');
+Route::get('/noticia/editar/{id}', [NoticiaController::class, 'createUpdate'])->name('create-update-noticia');
+Route::put('/noticia/update/{id}', [NoticiaController::class, 'update'])->name('update-noticia');
+Route::delete('/noticia/deletar/{id}', [NoticiaController::class, 'destroy'])->name('destroy-noticia');
+
+//Categoria Controller
+Route::get('/cadastro-categoria', [CategoriaController::class, 'index'])->name('create-categoria');
+Route::post('/categoria/cadastrar', [CategoriaController::class, 'store'])->name('store-categoria');
+Route::get('/categoria/editar/{id}', [CategoriaController::class, 'createUpdate'])->name('create-update-categoria');
+Route::put('/categoria/update/{id}', [CategoriaController::class, 'update'])->name('update-categoria');
+Route::delete('/categorias/deletar/{id}', [CategoriaController::class, 'destroy'])->name('destroy-categoria');
+
+

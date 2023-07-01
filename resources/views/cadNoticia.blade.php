@@ -6,7 +6,7 @@
     
     <div class="container container-sm">
     <h1 class="text-center">Publicar Notícia</h1>
-        <form action="noticia/cadastrar" method="POST" class="p-1">
+        <form action="{{ route('store-noticia') }}" method="POST" class="p-1">
             @csrf
             @if(session('msgCadNoticia'))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">

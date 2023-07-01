@@ -5,7 +5,7 @@
 @section('content')
 <div class="container container-sm">
     <h1 class="text-center">Editar Notícia</h1>
-        <form action="/noticia/update/{{ $noticia->id }}" method="POST" class="p-5">
+        <form action="{{ route('update-noticia', ['id' => $noticia->id]) }}" method="POST" class="p-5">
         @if($errors->any())
             @foreach($errors->all() as $error)
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
