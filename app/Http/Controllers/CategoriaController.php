@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Categoria;
-use App\Http\Requests\CategoriaStoreRequest;
+use App\Http\Requests\CategoriaRequest;
 
 class CategoriaController extends Controller
 {
@@ -12,7 +12,7 @@ class CategoriaController extends Controller
         return view('cadCateg', ['categorias' => $categorias]);
     } 
 
-    public function store(CategoriaStoreRequest $request){
+    public function store(CategoriaRequest $request){
        
         $categoria = new Categoria;
         $categoria->nome = $request->nome;
@@ -30,5 +30,10 @@ class CategoriaController extends Controller
     public function createUpdate($id){
         $categoria = Categoria::findOrFail($id);
         return view('/editCategoria', ['categoria' => $categoria]);
+    }
+
+    public function update(CategoriaRequest $request){
+        Categoria::findOrfail($request->id)->update($request->all());
+        return redirect('cadastro-categoria')->with('msgCadCategoria', "Categoria atualizada com sucesso!");
     }
 }

@@ -18,10 +18,15 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="categoria" class="form-label">Nome</label>
-                <input type="text" name="categoria" id="categoria" class="form-control" value="{{ $categoria->nome }}">
+                <input type="text" name="nome" id="input" class="form-control" value="{{ $categoria->nome }}">
             </div>
-            <button type="submit" name="submit" class="btn btn-success">Salvar Alterações</button>
+            <button id="botao" type="submit" name="submit" class="btn btn-success" disabled>Salvar Alterações</button>
         </form>
-    </div>
-
+    </div> 
+    <script>
+           // Chama a função habilitarBotao após o carregamento do DOM
+        document.addEventListener('DOMContentLoaded', function() {
+            habilitarBotaoEditCategoria();
+        });
+    </script>
 @endsection

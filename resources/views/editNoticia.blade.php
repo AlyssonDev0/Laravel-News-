@@ -39,5 +39,4 @@
             <button type="submit" name="submit" class="btn btn-success">Salvar Alterações</button>
         </form>
     </div>
-
 @endsection
