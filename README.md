@@ -1,6 +1,6 @@
-<h1>Crud de Notícias utilizando Laravel, Boostrap e ORM Eloquent</h1>
+<h1>App de postagem e edição de Notícias</h1>
 <p>Meu primeiro projeto Laravel</p>
-<p>Em breve instruções de instalação e Screenshots das páginas :smiley:</p>
+<p>Em breve Screenshots das páginas :smiley:</p>
 
 ## Instalação do Projeto 
 
@@ -24,7 +24,9 @@
 
     php artisan key:generate
 
-6 - Configure suas credenciais de banco de dados no arquivo `.env`.
+6 - Configure suas credenciais de banco de dados no arquivo `.env`:
+    Altere os parametros(DB_USERNAME, DB_PASSWORD) com o usuário e senha do seu servidor de banco de dados.
+    Então, crie um banco de dados e altere o parametro (DB_DATABASE) com o nome do banco criado. 
 
 7 - Faça a migração das tabelas para o banco:
 
@@ -34,7 +36,7 @@
 
     php artisan serve
 
-9 - Agora basta acessar o endereço local que por padrão é: 
+9 - Agora basta acessar o endereço local no seu navegador, que por padrão é: 
 
     http://127.0.0.1:8000
 
