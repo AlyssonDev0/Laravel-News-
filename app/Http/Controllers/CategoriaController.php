@@ -8,8 +8,9 @@ class CategoriaController extends Controller
 {
     public function index(){
 
-        $categorias = Categoria::all();
-        return view('cadCateg', ['categorias' => $categorias]);
+        $categorias = Categoria::paginate(5);
+        $contadorInicial = ($categorias->currentPage()-1) * $categorias->perPage(); //"Adaptação" para contar itens da paginação kkk
+        return view('cadCateg', compact('categorias', 'contadorInicial'));
     } 
 
     public function store(CategoriaRequest $request){

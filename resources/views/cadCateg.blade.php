@@ -52,16 +52,15 @@
         <table class="table table-light table-hover">
             <thead class="thead-dark">
                 <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">#</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
-            @php($count=1)
             @foreach($categorias as $categoria)
                 <tr>
-                <th scope="row">{{ $count }}</th>
+                <th scope="row">{{ $contadorInicial  + $loop->iteration }}</th>
                 <td>{{ $categoria->nome }}</td>
                 <td class="d-flex justify-content-start gap-1">
                     <a href="{{ route('create-update-categoria', ['id' => $categoria->id])}}">
@@ -76,9 +75,11 @@
                     </form>
                 </td>
                 </tr>
-            @php($count++)
             @endforeach
             </tbody>
         </table>
+        <div  class="d-flex justify-content-center">
+            {{ $categorias->links() }}
+        </div>
 </div>
 @endsection

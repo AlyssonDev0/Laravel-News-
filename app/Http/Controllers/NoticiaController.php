@@ -14,14 +14,16 @@ class NoticiaController extends Controller
         
         if($search){
             
-            $noticias = Noticia::where('titulo', 'like', '%' .$search. '%'           
-            )->orWhere('categoria', 'like', '%' .$search. '%')->orderBy('created_at', 'desc')->get();
+            $noticias = Noticia::where('titulo', 'like', '%' .$search. '%')
+            ->orWhere('categoria', 'like', '%' .$search. '%')
+            ->orWhere('conteudo', 'like', '%' .$search. '%')
+            ->orderBy('created_at', 'desc')->paginate(3);
             
         }else{
-                $noticias = Noticia::all()->sortByDesc('created_at');
+                $noticias = Noticia::paginate(3);
         }
 
-        return view('welcome', ['noticias' => $noticias, 'search' => $search]);
+        return view('welcome', compact('noticias', 'search'));
        
     }
 

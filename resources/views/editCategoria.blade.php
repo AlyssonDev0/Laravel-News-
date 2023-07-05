@@ -20,6 +20,9 @@
                 <label for="categoria" class="form-label">Nome</label>
                 <input type="text" name="nome" id="input" class="form-control" value="{{ $categoria->nome }}">
             </div>
+            <a href="{{ route('create-categoria') }}">
+                <button type="button" name="submit" class="btn btn-secondary">Cancelar</button>
+            </a>
             <button id="botao" type="submit" name="submit" class="btn btn-success" disabled>Salvar Alterações</button>
         </form>
     </div> 

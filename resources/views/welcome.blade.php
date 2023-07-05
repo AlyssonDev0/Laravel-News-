@@ -48,8 +48,12 @@
                         </div>                       
                     </div>
                 </div>
+                
             </div>
             @endforeach
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            {{ $noticias->appends(['search' => $search])->links() }}
         </div>
         @else
             <h2 class="text-center pt-3">Não há notícias a exibir. <a class="text-primary" href="/cadastro-noticia">Publicar</a></h2>
