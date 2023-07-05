@@ -36,6 +36,9 @@
                 <label for="conteudo"  class="form-label">Conteúdo</label>
                 <textarea type="text" name="conteudo" id="conteudo" class="form-control"> {{ $noticia->conteudo }}</textarea>
             </div>
+            <a href="/">
+                <button type="button" name="submit" class="btn btn-secondary">Cancelar</button>
+            </a>
             <button type="submit" name="submit" class="btn btn-success">Salvar Alterações</button>
         </form>
     </div>
