@@ -1,6 +1,6 @@
 <h1>App de postagem e edição de Notícias</h1>
-<p>Meu primeiro projeto Laravel</p>
-<p>Em breve Screenshots das páginas :smiley:</p>
+<p>Meu primeiro projeto Laravel:</p>
+<p>Crud simples utilizando Laravel e Bootstrap :computer:</p>
 
 ## Instalação do Projeto 
 
@@ -41,6 +41,11 @@
     http://127.0.0.1:8000
 
 <h3>Aproveite! :smiley:</h3>
+
+## Screenshots
+
+![Página Inicial](/screenshots/home.png)
+![Gerenciar Categorias](/screenshots/categorias.png)
 
 
 
