@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NoticiaController;
 use App\Http\Controllers\CategoriaController;
-use App\Models\Categoria;
 
 /*
 |--------------------------------------------------------------------------
